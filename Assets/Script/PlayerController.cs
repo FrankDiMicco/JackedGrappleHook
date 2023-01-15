@@ -109,6 +109,11 @@ private void OnDrawGizmos() {
                 playerSpringJoint.distance = playerSpringJoint.distance - GrappleRetractSpeed; 
             }
          }
+
+         if(verMovement < 0 && !grounded && playerSpringJoint.distance < lengthOfRope)
+         {
+            playerSpringJoint.distance = playerSpringJoint.distance + GrappleRetractSpeed;
+         }
         
         if(grounded) // if on the ground, player can walk left or right
         {
@@ -167,12 +172,6 @@ private void OnDrawGizmos() {
             //GrappleMovePlayer();  
             ReleaseGrapple(); 
         }
-
-
-
-
-
-
 
     }
 
